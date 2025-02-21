@@ -1,0 +1,66 @@
+Routing-
+________________
+
+Next js has a file system based routing system
+
+
+Urls you access in browser is. determined on how your file and folder are organised 
+_____________________________________________
+
+
+Convention to follow
+
+1. All routes must lie inside the app folder
+2. Route file must have page.js or page.tsx extension
+3. Each folder represents segment of url path
+
+
+______________________’
+‘
+
+1.We can delete the app folder
+2.Create new app folder -
+3.Create page.jx file inside app folder-
+This will be default route
+For other routing create folder inside app - about - page.tsx
+
+Inside again page.tsx-
+const About = () => <>this is the about page</>
+
+export default About;
+
+Inside app folder create help folder
+
+
+Inside again page.tsx-
+
+const Help = () => <>This is th help page</>
+
+
+export default Help
+___________
+
+
+ So in browser with 
+
+
+http://localhost:3000 - page.tsx inside app gets called
+
+
+
+http://localhost:3000/help - help folder page.tsx gets called
+
+
+http://localhost:3000/about - about folder  page.tsx gets called
+
+
+
+
+And there us default 404 provided
+
+
+______________
+
+
+
+

@@ -1,0 +1,42 @@
+React Server Components-
+
+Its a new architecture introduced by the react team and adopted by next js
+
+We divide the react components into 2 types-
+
+React server components
+
+React client components
+
+____________
+
+Server components
+
+By default all components are server components
+These components can perform server side task like reading files or fetching data directly from a database
+
+They can t use hooks or handle client operations
+
+
+
+Client components-
+
+
+For creating client components use - ‘’use client’’ directive at the top of your component file
+
+They can’t perform server side tasks but can handle user interactions and use hooks
+
+Client components are the traditional components we are familiar with
+
+
+
+
+_______________________________
+
+
+
+
+
+
+
+

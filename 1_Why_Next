@@ -1,0 +1,33 @@
+Next Js-
+__________________________________________
+
+Next js a react framework for building full stack web applications, production ready applications.
+
+React is just a library for building UI only the. View layer
+
+______________________
+
+
+Next js is a react framework that allows you to build prod ready apps, it provides features such as-
+
+Routing
+Optimised rendering’
+data fetching
+Bundling 
+Compiling
+
+No need to add extra packages
+___________________________
+Features -
+
+
+1. Routing- file based routing
+2. Api routes
+3. Rendering - supports csr and ssd - helps provide better set
+4. Data fetching
+5. Styling
+6. Optimisation
+7. Dev and prod build systems
+
+
+_________________________________

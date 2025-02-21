@@ -45,3 +45,18 @@ It fetches any necessary data.
 It generates the final HTML page dynamically.
 The fully rendered page is sent to the browser.
 
+____________________
+
+
+setting up next js
+
+
+npx create-next-app@latest
+
+
+it installes the next project
+
+
+
+npm run dev runs it
+

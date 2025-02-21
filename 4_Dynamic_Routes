@@ -1,0 +1,42 @@
+Dynamic Routes-
+________________________
+For nested - create folder inside another folder
+
+For dynamic data - create folder inside [] brackets and the value inside the [] bracket is the variable which can be used with promise props
+
+In app - products - [productId]
+
+
+// it will take a params as a prop so restructure it
+const ProductId =async ({params}) =>
+    { 
+
+   // await for the promise and the listen to the proudctId folder name
+        const data = (await params).productId
+    return(
+    <>This is the product id page
+     <br />
+data value is {data}
+    </>
+   
+    )
+}
+
+
+export default ProductId
+____________
+
+const ProductId = async({params}) =>{
+     const val = (await params).productId
+
+    return(
+        <>
+        this is the child page with i : {val}
+        </>
+    )
+}
+
+export default ProductId
+
+
+

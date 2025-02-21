@@ -1,0 +1,28 @@
+Nested dynamic routes-
+_____________________________
+
+Folder for url -
+
+
+http://localhost:3000/products/32/reviews/233
+
+
+App —— products —— [productId] —— review —[reviewId]
+
+
+Note - the key name in restructuring will be the same name of folder
+
+
+In [reviewId] folder - page.tsx-
+
+
+const ReviewId = async({params}) =>{
+
+// can destructure the params 
+    const {productId, reviewsId} = await params
+    return(<>
+    the product id is {productId} and the review id is {reviewsId}
+    </>)
+}
+
+export default ReviewId

@@ -1,0 +1,116 @@
+RSC-
+________________
+
+
+CSR - SSR - Suspense SSR
+
+
+
+Suspense SSR issue-
+
+1. Large bundle size causing excessive downloads.
+2. Un necessary hydration  delaying interactivity
+3. Heavy client side processing
+
+_______________
+
+
+RSC - React server components -
+
+
+New architecture designed by react team
+
+Leverages the strength of both client and server environments to optimise efficiency and load times.
+
+This architecture introduces a dual component model-
+1. Server components
+2. Client components
+
+The distinction is not on components functionality but the execution environment 
+
+
+_________________________________
+
+
+Client component -
+
+
+Typical react components
+
+They are rendered on the client side (csr) but they can be rendered to html on server , allowing the user to see the screen immediately rather than a blank screen
+
+
+Client components can be rendered to htm on server
+
+Optimization strategy
+
+
+They operate on client side but should also run once on server for better performance 
+
+Client components have full access to the client environment, such as browser, use state, effects and event listeners
+
+Can access browser api - like geo location api or locastorage
+__________________
+
+
+Server components -
+
+
+New type of react components designed to run only on server
+
+Unlike client components their code states on server and is never downloaded to the client
+
+
+________________________
+
+
+Benefits for server components -
+
+
+Smaller building size
+
+As server components stay on server  all their dependency stay on server too, so we don’t need to download , parse and execute the javascript for them
+
+
+No hydration step
+
+
+We get direct access to server resources
+
+They can access data bases , file systems making the data fetching efficient without client processing
+
+
+Use server power to compute heavy tasks, security also benefits
+
+Improve performance as data fetching and data base are near server
+
+
+caching
+
+
+First initial load and first content full paint
+
+
+Seo opeimistaion
+
+Efficient streaming
+
+
+
+_____________________
+
+
+So react server components take care of data fetching and static rendering 
+
+While client component takes care of rending interactive elements
+
+
+We get best of both server and client rendering
+
+__________________________
+
+The app router in next.js is built entirely on rsc architecture
+
+
+
+

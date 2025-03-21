@@ -1,0 +1,93 @@
+SSR Drawbacks-
+________________________________
+
+1.we can’t start rendering the html until data is fetched on the server
+2. We need to wait for all js to load on client before hydration
+3. Every components needs to be hydrated before any of then becomes interactive 
+
+These issues creates all or nothing waterfall , specially when some parts are slower than others.
+
+
+______________________
+
+
+Suspense ssr architecture -
+
+
+1. Html streaming on server
+2. Selective hydration on client
+
+
+
+We have -
+
+Nav bar
+Side nav
+Main component
+
+Footer
+_______________________
+
+We have suspense ssr architecture
+
+We use <Suspense> component. To unlock the fixes for ssr
+
+
+Suspense ssr architecture -
+
+
+1. Html streaming on server
+2. Selective hydration on client
+
+
+
+____________
+
+
+<header>
+<sidenav>
+<Suspense fallback={<spinner />} />
+<maincomponent>
+</suspense>
+<footer>
+
+_____________
+
+Main component takes time, react tells don’t wait for it to fetch data, start streaming the html
+When data is ready - we will get that main comoipnent code and the js for that
+
+
+So we don’t have to fetch everything , before we can show anything
+
+
+Slow component can be streamed later when the data is ready
+
+
+________________________________
+
+
+Selective hydration-
+
+
+We need to use code splitting for that component
+
+React lazy splits that component code from main bundle
+
+The browser can  download react and most of your code and hydrate it
+
+
+Const maincomponent = React.lzay(() => import(‘./Maincomponent’))
+
+
+By wrapping the component inside the suspense , we don’t only tell that stream later, we are also telling that ok to hydrate everything else 
+
+Selective hydration- allows hydration of parts of page as they become avialable, even before all html is rendered and the entire js code is fully downloaded..
+
+Selective hydration makes the page interactive one though main component takes time
+______________________________________________
+
+If multi components are waiting hydration, it priorities based on the user interactions
+
+
+
+

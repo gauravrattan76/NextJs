@@ -1,0 +1,93 @@
+Problems with csr-
+
+
+Content relies  on javascript to be executed on the client side
+
+
+Since the content relies on javascrit to Redner on the client side search engines often struggle ti index it properly
+
+User experience - need to wait for  downloading, parsing  and exceuting of the scripts and ui becoming interactive
+
+
+______________________________
+
+Server sid solutions-
+
+
+1. Client send a request to server 
+2. Server sends the generated html page (static and non teractive) along with the js bundle reference
+3. Browser can parse and display the html page while downloading and executing the js
+The page is non interactive
+
+4.Hydration - browser started making the static non interactive htm file updated with js execution making it fully interactive, static page is brought to life
+
+
+
+
+During hydration, react takes control in the browser and reconstructs component tree in memory using the server side html page
+
+
+It carefully maps out where the interactive elements should go and the Hooks up javascript logic
+Ex. Initialising app state, adding clicks mouse ver handlers and setting up dynamic features needs for fully interactive user experience
+
+
+____________________________________________________________________________-
+
+
+Hydration is the key.
+
+___________________
+
+
+Server side solutions can be categorised  into 2 parts -
+
+1. Static site generation
+2. Server side rendered
+
+
+1.SSG - happes. During build time, when you deploy the application to the server , this results in pages that are already rendered and ready to serve, perfect for content that stays stable ex. Blog posts etc
+
+2.SSR -  renders pages on demand when user request them, its ideal for personalised content like social media media feeds where html changes depending on ho logged in
+
+
+_____________________________
+
+SSR was better than car leading to faster initial pages loads and better se0
+
+___________________
+
+Challenges with ssr -
+
+
+1. Fetch everything before you can show, components can’t start rendering and then pause or wait while data is loading component needs data from data base , this fetch needs to be completed before server can begin rendering the page, can delay in server response
+2. For successful hydration - ckomponent tree in browser must match with the server side cerebrated component, meaning all the js code need to be loaded in browser before hydration
+3. Hydrate everything before you start interacting leading to waterfall model
+React hydrates the copoment tree in single pass, means once it starts hydrating it won’t stop until fished entire tree, as a result all component must be hydarted
+
+
+_______________________________
+
+
+Problems -
+
+1. Fetch the dat for entire page before sending
+2. Load the js fr entire page
+3. Hydrate the entire page
+
+Creates all or nothing waterfall problem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

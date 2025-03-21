@@ -1,0 +1,54 @@
+Server and Client components -
+__________________________________________
+
+Every component in next defaults to the server components
+
+Running components on server has advantages like - 0 bundle size, direct access to the server side resources , improved security and better set
+
+Server components can’t interact wit the browser api or handle user interactions
+
+
+Can’t use state here
+
+
+___________________________________
+
+Create a client component , use this directive - "use client"
+
+
+"use client"
+
+import { Bonheur_Royale } from 'next/font/google';
+import React,{useState} from 'react'
+
+export default function Dashboard(){
+const [name,setName] = useState("");
+console.log('dashboard compinet getting called');
+
+const setField = (e: any) =>{
+    const val = e.target.value;
+    setName(val)
+}
+
+    return(
+        <>
+        <h3>Welcome to dashboard page: {name}</h3>
+        <br />
+        <button>click me</button>
+        <h4>my dashboard</h4>
+        <input onChange={setField} value={name} type="text" style={{color: 'red', border: '2px solid black'}} />
+        </>
+    )
+}
+
+
+Client component gets called once on server too
+___________
+
+
+
+If you refresh the page , we will see it in server too so that user can see it immediately
+
+On button click only renders in ui
+
+

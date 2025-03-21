@@ -1,0 +1,133 @@
+Next JS-
+________________________________
+
+
+React introduced spa concept
+
+Client side rendered -
+
+
+When a call goes to server in case of localhost - 3000
+
+It returns a html page
+
+
+That html is index.html file contains app root component
+
+
+Contains the link to bundle.js file
+
+
+That bundle.js is the powerhouse.
+
+
+First parse the entire html and keep downloading the bundle file in parallel, once entire html is parsed and rendered executes the bundle.js
+
+CSR- whole approach where your browser transform the react component into what you see in screen that’s called client side rendered
+
+Steps -
+
+
+1.Browser calls the server - only send the html file with js bundle reference - html + js reference
+1. Browser calls server again for the js bundle -
+Bundle.js is the powerhouse(where all our js/react code is there)
+1. Browser downloads the js bundle and then start executing the scripts
+2. We get interactive ui- where all our jsx / html gets injected under the app root component where we see the interactive ui (browser generates the html and injecting into the Dom)
+
+CSR became famous for SPA 
+
+
+Drawbacks of CSR -
+
+
+SEO-
+
+When the crawler comes to your site they look at html content, but your initial html content is empty div as still fetching of bundle.js and then converting it to html and rendering under the app takes time, bit good for set
+
+Mukti nested component in page making api call, if the api takes time content might get delayed making it. Difficult for set crawlers to even catch it
+
+
+Bowser doing loads of work-
+
+Fetch data -  build the ui — make everything interactive - loads of work for browser
+
+
+___________________________________-
+
+
+CSR and its problem- 
+
+Wonder what happens when you hit - http://localhost:3000/ (or your app url) in your browser while running a react project.
+
+
+Browser makes a call  to the Server in our case local host (http://localhost:3000/)
+
+Browser gets a response as an html page (index.html present in the public folder of our project)
+
+Important thing to notice-
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+ </head>
+  <script defer src="/static/js/bundle.js"></script></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
+
+
+Script tag -   <script defer src="/static/js/bundle.js"></script></head>
+
+ that contains reference to the bundle.js file and this bundle.js is the file which contains all our React code.
+
+Important thing to notice here is -  <script defer src="/static/js/bundle.js"></script>
+
+We use a defer attribute here allowing the browser to parse the html file completely(while downloading the js bundle in parallel to not cause any interruption in html parsing) and once bundle.js is downloaded and html parsing is complete, browser run the bundle.js script file(our react code)
+
+
+Once the bundle.js executed and our react component code is generated .The browser  adds our react code component to the root div  and making our page interactive for the user
+
+
+
+________________________________________________
+
+
+Problem with CSR - 
+
+Browser has  too much work  to do - 
+call sever 
+get index.html 
+Download  the bundle.js scripts
+Run the scripts 
+ generate the html react code
+ bind  the generated react code to root app div and make the UI page interactive.
+
+
+
+
+SEO problems -
+
+When the SEO crawler comes to your site they look at html content, but your initial html content is empty div (as we only get plain simple index.html only with root component and just a  bundle.js reference) leading to poor SEO score
+
+Having Multi nested components in your page which are making api calls(if the api takes time content might get delayed making it Difficult for  crawlers to even crawl the content and leading to poor set score)
+
+
+Solutions to the above issues - in next post(you already got the hint - next.js)
+
+
+
+
+
+

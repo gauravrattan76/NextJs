@@ -1,0 +1,54 @@
+Dynamic Rendering-
+_____________________________
+
+
+It’s a strategy where html is generated at request time.
+
+
+Next js automatically enables it when it encounters dynamic features like - cookies , headers, connection, search params prop
+
+
+Dynamic rendering is a server rendering strategy  where routes are rendered uniquely for each user when they make a request
+
+It is useful when we need to show personalised data or information that’s available at request time only
+
+
+Best for personalised content like social medial etc
+
+Since we use cookies its dynamically rendered
+
+
+
+import {cookies} from 'next/headers'
+
+export default async function About(){
+console.log("aboubt server component getting called");
+const cookiestore = await cookies();
+
+const theme = cookiestore.get('theme')
+console.log('theme is', theme)
+    return(
+        <>
+        This is the about compnent getting called
+        </>
+    )
+}
+
+_______________
+
+In build we can see
+
+Route (app)                                 Size  First Load JS    
+┌ ○ /                                    8.01 kB         109 kB
+├ ○ /_not-found                            978 B         101 kB
+└ ƒ /about                                 135 B         101 kB
++ First Load JS shared by all             100 kB
+  ├ chunks/4bd1b696-5b6c0ccbd3c0c9ab.js  53.2 kB
+  ├ chunks/684-c0c78eab0c9b2e63.js       45.4 kB
+  └ other shared chunks (total)          1.88 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+

@@ -1,0 +1,42 @@
+Private folders-
+___________________
+
+We can have private folder in next.js
+
+
+Use _ t0 create a folder name
+
+
+Ex. _lib - even if you create a page.tsx inside it it won’t come in the ui
+
+_____________________________
+
+1. Keep the ui logic from routing logic
+2. Have a consistent way to organise internal files
+3. Avoid conflicts
+
+
+______________________
+
+Create a _lib directory - can add all the files here
+
+
+Even if we create page.tsx file -
+
+export default function Lib(){
+    return(
+        <>
+        this is the lib compoennt
+        </>
+    )
+}
+
+
+
+___________
+
+
+If we try accessing - http://localhost:3000/_lib
+
+
+We get 404 error

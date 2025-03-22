@@ -1,0 +1,53 @@
+File Colocation-
+______________________
+
+Next js uses file based routing
+
+Routes becomes only public accessible if add page.tsx inside it, if we don’t page.tsx - we get 404 error
+
+In page.tsx the browser only gets it when its default exported react component , with our default - default export is not a react component
+
+
+
+Each folder represent a segment
+
+It needs to have page.tsx file for the route to render and the component needs to be default export
+
+Ex. Employee folder — needs tp have page.tsx file for rating to work for localhost/employee else we get 404
+
+If not default export again we get error
+
+
+We can have other .tsx files too which we can use it
+
+Both file inside the employee directory
+
+Page.tsx-
+
+import Slave from "./employee"
+
+export  default function  Employee(){
+    return(
+        <>
+        this is employee main comopnent
+        
+        <br />
+        <Slave />
+        </>
+    )
+}
+
+
+
+
+____________
+
+Slave.tsx inside the same directory- 
+
+export default function Slave(){
+    return (
+        <>
+        this is the slave funtion getting called
+        </>
+    )
+}

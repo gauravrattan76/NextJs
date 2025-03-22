@@ -1,0 +1,69 @@
+Streaming-
+_________________
+
+It allows for progressive ui rendering from the server
+
+
+Work is broken not smaller chunks and streamed to clients as soon as they are ready
+
+
+Means users can see parts of the page right away without waiting for everything to load
+
+
+It improved initial load time if the ui depends on slower data fetches
+
+
+Comes built in app router
+
+_______________________________________________________
+if we dont use suspense, entire ui keeps loading
+
+Here both the components take time to render on the ui
+
+We use using the Suspense from react and using a fallback ui message
+
+import Home from "../components/home";
+import Park from "../components/park";
+import { Suspense } from "react";
+
+
+export default function ProductReview(){
+    return(<>
+    this is the prodtc review components
+    < br />
+    <Suspense fallback={<p>loading the home page</p>}>
+    <Home />
+    </Suspense>
+   
+    <br />
+    <Suspense fallback={<p>loading the park page</p>}>
+    <Park />
+    </Suspense>
+    </>)
+}
+
+
+______________
+
+
+export  const Home = async() =>{
+    await new Promise((resolve) => setTimeout(resolve, 8000))
+    return(<>
+    this home component
+    </>)
+}
+
+export default Home
+
+
+export  const Park = async() =>{
+    await new Promise((resolve) => setTimeout(resolve, 4000))
+    return(<>
+    this is park component
+    </>)
+}
+
+export default Park
+
+
+

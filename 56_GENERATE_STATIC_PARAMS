@@ -1,0 +1,62 @@
+generateStaticParams-
+_______________________________
+
+
+With generate static params we can pre render the dynamic routes to0
+
+
+We will get -
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
+Products page - import Link from "next/link";
+
+
+
+export default function Products(){
+    return(
+        <>
+        <h2>
+            This is the products page-
+        </h2>
+        <Link href="/products/1">produvt1</Link>
+        <Link href="/products/2">produvt2</Link>
+        <Link href="/products/3">produvt3</Link>
+        <Link href="/products/4">produvt4</Link>
+        </>
+    )
+}
+
+
+
+__________
+
+
+Id page -
+Create [id] directory inside I
+
+
+export default async function Products({params}:{params:Promise<{id: string}>}){
+    const {id} = await params;
+    return(
+        <>
+        we are in the products page for the id: {id} and date time is {new Date().toLocaleTimeString()}
+        </>
+    )
+
+}
+
+_____________
+
+
+In build we get - 
+
+Route (app)                                 Size  First Load JS    
+┌ ○ /                                    5.57 kB         109 kB
+├ ○ /_not-found                            978 B         101 kB
+├ ƒ /about                                 139 B         101 kB
+├ ○ /products                              173 B         104 kB
+└ ƒ /products/[id]                

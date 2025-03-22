@@ -1,0 +1,44 @@
+Route groups-
+__________________
+
+Use - (auth) in the folder name to have it removed from the url
+
+
+Create a login folder-
+
+Page.tsx -
+
+export default function Login(){
+    return(
+        <>this is the login component</>
+    )
+}
+
+Create a register folder -
+
+Page.tsx-
+
+export default function Register(){
+    return(
+        <>this is the Register component</>
+    )
+}
+
+_____________
+
+Move inside the auth folder-
+
+
+We can access via - 
+
+http://localhost:3000/auth/register
+
+http://localhost:3000/auth/login
+
+
+We need to add auth in routes
+
+
+ To remove it add - (auth) in folder name and then we don’t need to add In routes
+
+

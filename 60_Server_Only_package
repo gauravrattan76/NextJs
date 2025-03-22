@@ -1,0 +1,106 @@
+Server only code -
+__________________________
+
+Npm I server-only
+
+import 'server-only'
+
+export const  ServerUtils = () =>{
+  console.log('this is server component getting caled')
+  return 'server component returns here'
+    }
+    
+______________________________________
+Use import ‘server-only’ at the top of server function
+
+
+It leads to build issue if you use it in client components
+
+
+ You're importing a component that needs "server-only". That only works in a Server Component but one of its parents is marked with "use client", so it's a Client Component.
+  │ Learn more: https://nextjs.org/docs/app/building-your-application/rendering
+
+
+
+__________________________________
+ Some code is for the server only 
+
+
+Since js modules can be shared between server and client components code meant for server can accidentally go to the client
+
+
+Can bloat js bundle and lead to security issues
+
+_____________________________________
+
+
+Always keep server only code from client code
+
+
+Server-only package
+
+________________________________________
+
+We create a server side function-
+If we create. A server side function and refer it inside client component we get the server function on client which can increase bundle size and lead to performance issues
+
+
+
+ServerUtils file-
+
+
+export const  ServerUtils = () =>{
+  console.log('this is server component getting caled')
+  return 'server component returns here'
+    }
+    
+
+
+Client side code-
+
+"use client"
+import {ServerUtils} from '@/app/utils/serverutils'
+
+const  ClienRoute = () =>{
+const data = ServerUtils();
+return(
+    <>
+    This is client component getting called
+    <br />
+    value rendered is : {data}
+    </>
+)
+}
+
+export default ClienRoute
+
+
+
+Sevrer code-
+
+import { ServerUtils } from "../utils/serverutils"
+
+const  ServerRoute = () =>{
+    const data = ServerUtils();
+return(
+    <>
+    This is server component getting called
+    <br />
+    data is {data}
+    </>
+)
+}
+
+export default ServerRoute
+
+
+
+___________________________________-
+
+
+
+
+
+
+
+

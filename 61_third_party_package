@@ -1,0 +1,12 @@
+Third party packages-
+___________________________________
+
+
+If you are using third party packages, create a separate file for the, get the code for them 
+
+
+Use the “use client” directive and the n the code for the package
+
+
+Refer that code in any component 
+

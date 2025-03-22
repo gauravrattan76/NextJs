@@ -1,0 +1,24 @@
+Server and client composition patterns-
+___________________________________________________
+
+Server components -
+
+
+1. Fetching data
+2. Accessing backend resources directly
+3. Keeping sensitive info like tokens etc
+4. Handling large dependency  at server side, means less js code to download at the browser
+
+_______________________________
+
+
+Client components-
+
+
+1. Handling interactivity
+2. Handling event listeners
+3. Handling or managing state
+4. Browser specific api
+5. Implementing hooks
+
+_________________________

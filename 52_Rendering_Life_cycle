@@ -1,0 +1,27 @@
+Rendering life cycle-
+__________________________________
+
+Initial Rendering lifecycyle
+
+Initial loading sequence of rsc
+
+
+1. Browser send a request to server(next js and react librrary)
+2. Next js matched the server component  and cals react to render server components
+3. React render sc component and prepare client component tree instructions and send rsc payload to next js , next js generates html
+4. Next js streams static html to browser and rsc payload
+5. On browser we progressively render ui
+6. Selective hydration to see full interactive ui
+
+
+______________________________
+
+
+Update life cycle -
+
+
+1.Browser send a request to update server(next js and react librrary)
+2.Next js matched the server component  and cals react to render server components
+3.React render sc component and prepare client component tree instructions and send rsc payload to next js , next js generates html
+4 browser takes the rsc payload only that route re render
+5. Reconciliation 

@@ -1,0 +1,36 @@
+Dynamic params-
+_________________________
+
+Controls what happens when dynamic segment is visited that was not generated in gereratestaticparams
+
+Default value for dynamicParams is true
+
+If we set the value as false , we will get 404 for dynamic segments not added in generate static params
+
+
+
+
+Eg-
+
+
+export const dynamicParams= false
+
+export async function generateStaticParams () {
+    return [{id: '1'},{id: '2'},{id: '3'}]
+}
+
+export default async function Products({params}:{params:Promise<{id: string}>}){
+    const {id} = await params;
+    return(
+        <>
+        we are in the products page for the id: {id} and date time is {new Date().toLocaleTimeString()}
+        </>
+    )
+}
+
+
+So if we try access products/ 4 - we get 404
+
+
+
+

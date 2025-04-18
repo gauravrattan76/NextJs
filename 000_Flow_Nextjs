@@ -1,0 +1,54 @@
+Next 15-
+____________________________________
+
+Layouts in Next.js App Router
+In the app/ directory, files like layout.tsx and page.tsx have special meanings:
+* layout.tsx: Defines UI that persists across pages (like headers, footers, sidebars).
+* page.tsx: The actual page content.
+
+
+
+
+
+Given this structure:
+
+CopyEdit
+app/
+  layout.tsx
+  page.tsx
+
+
+
+Next.js starts from the root of the app/ directory.
+1.It first loads and renders layout.tsx.
+2.nside layout.tsx, there's usually a special placeholder:
+tsx
+CopyEdit
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>{children}</body>  // 👈 children will be your `page.tsx`
+    </html>
+  )
+}
+
+
+
+3.Next.js now renders page.tsx and passes it into the children prop of layout.tsx.
+4.So the layout wraps the page like this:
+tsx
+CopyEdit
+<Layout>
+  <Page />
+</Layout>
+
+Why layout.tsx gets called first?
+Because it’s treated as the shell for that route. Think of it like:
+* layout.tsx defines what stays consistent.
+* page.tsx defines what changes per route.
+* Next.js knows to nest page.tsx inside layout.tsx when building the HTML for the route.
+
+
+
+
+
